@@ -19,15 +19,9 @@
       --w08:  rgba(255,255,255,0.08);
     }
 
-    /* solid fallback so nothing ever bleeds white */
+    /* fixed to viewport — covers the screen permanently on mobile */
     html {
       min-height: 100%;
-      background: #B8D9EE;
-    }
-
-    body {
-      min-height: 100dvh;
-      /* dvh = dynamic viewport height, accounts for mobile browser chrome */
       background: linear-gradient(168deg,
         #0B4482 0%,
         #1B6DB5 22%,
@@ -35,6 +29,12 @@
         #78BAE0 75%,
         #B8D9EE 100%
       );
+      background-attachment: fixed;
+    }
+
+    body {
+      min-height: 100dvh;
+      background: transparent;
       color: var(--w100);
       font-family: 'DM Mono', monospace;
       display: flex;
