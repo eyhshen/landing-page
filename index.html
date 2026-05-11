@@ -19,9 +19,15 @@
       --w08:  rgba(255,255,255,0.08);
     }
 
-    /* gradient on html so it fills the full document height, not just viewport */
+    /* solid fallback so nothing ever bleeds white */
     html {
       min-height: 100%;
+      background: #B8D9EE;
+    }
+
+    body {
+      min-height: 100dvh;
+      /* dvh = dynamic viewport height, accounts for mobile browser chrome */
       background: linear-gradient(168deg,
         #0B4482 0%,
         #1B6DB5 22%,
@@ -29,11 +35,6 @@
         #78BAE0 75%,
         #B8D9EE 100%
       );
-    }
-
-    body {
-      min-height: 100svh;
-      background: transparent;
       color: var(--w100);
       font-family: 'DM Mono', monospace;
       display: flex;
