@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <!-- Must equal the gradient's top color: Safari paints its status-bar strip with
+       this, so matching it makes the page edge invisible (the "Google effect"). -->
+  <meta name="theme-color" content="#0B4482">
   <title>Elaine Shen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,17 +22,23 @@
       --w08:  rgba(255,255,255,0.08);
     }
 
-    /* fixed to viewport — covers the screen permanently on mobile */
+    /* fixed to viewport — covers the screen permanently on mobile.
+       background-color must match the gradient top: iOS overscroll reveals the
+       canvas, which is painted with this color (no-repeat stops the gradient
+       from tiling a second copy there — the old visible "cutoff"). */
     html {
       min-height: 100%;
-      background: linear-gradient(168deg,
+      background-color: #0B4482;
+      background-image: linear-gradient(168deg,
         #0B4482 0%,
         #1B6DB5 22%,
         #3A92D0 50%,
         #78BAE0 75%,
         #B8D9EE 100%
       );
+      background-repeat: no-repeat;
       background-attachment: fixed;
+      overscroll-behavior-y: none;
     }
 
     body {
